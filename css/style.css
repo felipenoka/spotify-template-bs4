@@ -1,9 +1,10 @@
 html, body, #home {
-    min-height: 103vh;
+    min-height: 100vh;
 }
-.wrap {
+.hero-home {
     background-image: linear-gradient(#F037A5 -60%, #FAE62D 140%);
     font-weight: 700;
+    width: 100%;
 }
 
 h1, h2, h3, h4 {
@@ -381,6 +382,9 @@ footer span {
     footer .social img {
         width: 44px;
         height: 44px;
+    }
+    .footer .region {
+        padding-left: 0;
     }
 
 }
