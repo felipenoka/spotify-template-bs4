@@ -28,88 +28,98 @@ h4 {
     width: 140;
 }
 
+.container-nav {
+    margin: 0 auto;
+    padding: 0 15px;
+    padding-right: 0;
+    padding-left: 0;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.sidebarBtn {
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    align-items: flex-start;
+    z-index: 1001;
+    background-color: transparent;
+    border: none;
+}
+
+.sidebarBtn span {
+    background-color: currentColor;
+    border-radius: 1px;
+    transform-origin: 21px;
+    display: block;
+    height: 3px;
+    width: 22px;
+    color: #fff;
+    margin-top: 4px;
+    transition: all cubic-bezier(0.26, 0.1, 0.27, 1.55) 0.35s;
+}
+.sidebarBtn.close .top {
+    transform: rotate(-45deg);
+    top: 48%;
+}
+
+.sidebarBtn.close .mid  {
+    opacity: 0;
+}
+.sidebarBtn.close .bot {
+    transform: rotate(45deg);
+    top: 48%;
+}
+
 /* Navegação */
 
-nav.navbar-transp {
-    background: rgba(0,0,0,0.6);
+.nav-color {
+    width: 100%;
+    background: rgba(0,0,0,0.6) !important;
+    position: fixed;
+    z-index: 1000;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: #fff;
+.navbar {
+    padding: 0;
+}
+
+nav ul {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    list-style: none;
     display: inline-block;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #fff;
     text-decoration: none;
     font-weight: 700;
-    padding: 8px 17px;
-}
-.navbar-light .navbar-nav .nav-link:hover {
-    color: #1DB954;
+    display: block;
+    margin: 28px 17px;
 }
 
-.navbar-light .navbar-toggler {
-    border-color: rgba(0,0,0,0);
+nav ul li a:hover {
+    color: #1DB954;
+    text-decoration: none;
 }
 
 .separator {
     width: 1px;
     background: white;
-    margin: 12px 15px;
+    margin: 31px;
 }
 
-.sidebarBtn {
-    position: absolute;
-    width: 40px;
-    height: 20px;
-    box-sizing: border-box;
-    cursor: pointer;
-    background: #000;
-    border: none;
-    outline: none !important;
-    z-index: 5;
-}
-
-.sidebarBtn span {
-    display: block;
-    width: 20px;
-    height: 3px;
-    background: #fff;
-    top: 0;
-    position: absolute;
-    transition: .3s;
-}
-
-.sidebarBtn span:before {
-    content: '';
-    position: absolute;
-    top: -7px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: #fff;
-}
-
-.sidebarBtn span:after {
-    content: '';
-    position: absolute;
-    top: 7px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: #fff;
-}
-
-.sidebarBtn.toggle span {
-    background: transparent;
-}
-
-.sidebarBtn.toggle span:before {
-    top: 0;
-    transform: rotate(45deg);
-}
-
-.sidebarBtn.toggle span:after {
-    top: 0;
-    transform: rotate(-45deg);
-}
 .mobile-nav {
     display: flex;
     position: relative;
@@ -138,9 +148,75 @@ nav.navbar-transp {
     justify-content: space-between;
 }
 
+.mobilesidebar ul {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    list-style: none;
+}
 .active {
     right: 0;
 }
+
+/** TOGGLE BUTTON **/
+
+.mobile-nav {
+    width: 100%;
+    padding: 4.5px 15px;
+    background: #000;
+    text-align: right;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 30px;
+    display: none;
+    justify-content: space-between;
+}
+
+.mobile-nav img {
+    height: 27px;
+    width: 89px;
+}
+.mobilesidebar ul .textlink a{
+    font-weight: 400;
+    font-size: 28px;
+}
+
+
+@media (max-width: 992px) {
+    .mobile-nav {
+        display: flex;
+        text-align: left;
+    }
+    .container-nav {
+        display: none;
+    }
+    .mobilesidebar ul li {
+        margin: 0;
+        display: block;
+    }
+    .mobilesidebar ul li a{
+        cursor: pointer;
+        padding: 0 0 25px;
+        display: block;
+        line-height: 1;
+        font-weight: 700;
+        font-size: 36px;
+        margin: 0;
+    }
+    .mobilesidebar ul .separator {
+        width: 22px;
+        height: 2px;
+        background: white;
+        margin: 40px 15px 40px 0;
+    }
+    
+
+}
+
+.sidebarSpan {
+    margin-top: 4px;
+}
+
 
 /* Capa */
 
@@ -181,6 +257,10 @@ nav.navbar-transp {
     padding: 0px 0px 20px 0px;
     position: relative;
     display: block;
+    position: static;
+    bottom:0;
+    left:0;
+    width: 100%;
 }
 
 footer h4 {
@@ -269,50 +349,6 @@ footer span {
 }
 
 @media (max-width: 991px) {
-    .mobile-nav {
-        display: block;
-    }
-
-    .mobile-nav .navbar {
-        align-items: flex-start;
-    }
-    .desktop-nav {
-        display: none;
-    }
-
-    .mobilesidebar ul li {
-        display: block;
-    }
-    .mobilesidebar ul li a {
-        display: block;
-        line-height: 1;
-        font-weight: 700;
-        font-size: 36px;
-    }
-
-    .mobilesidebar ul .textlink a{
-        font-weight: 400;
-        font-size: 28px;
-    }
-
-    .mobilesidebar ul {
-        display: inline;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    .mobilesidebar ul .separator {
-        width: 22px;
-        height: 2px;
-        background: white;
-        margin: 40px 15px;
-    }
-    nav.navbar-transp {
-        background: black;
-    }
-    nav.navbar-transp img {
-        height: 27px;
-    }
     .hero {
         position: absolute;
         left: 50%;
@@ -320,6 +356,10 @@ footer span {
         height: 676px;
         background: url(/img/hero-burst-mobile.svg) no-repeat;
         transform: translate(-50%, 10%);
+    }
+
+    .mobile-nav .navbar {
+        align-items: flex-start;
     }
     
     footer .spotify-logo img {
